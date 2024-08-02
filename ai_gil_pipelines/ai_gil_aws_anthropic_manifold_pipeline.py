@@ -61,6 +61,16 @@ class Pipeline:
 
     async def on_startup(self):
         print(f"on_startup:{__name__}")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
+        print("JOE ROGAN")
         pass
 
     async def on_shutdown(self):
@@ -102,12 +112,12 @@ class Pipeline:
 
             system_message, messages = pop_system_message(messages)
 
-            # GIL: little hack to have many different system prompts for the same model
-            model_id = model_id.split("__")[0]
             system_prompt = next(
                 (model["system_prompt"] for model in self.get_anthropic_models() if model["id"].startswith(model_id)),
                 system_message,
             )
+
+            model_id = model_id.split("__")[0]
 
             processed_messages = []
             image_count = 0
