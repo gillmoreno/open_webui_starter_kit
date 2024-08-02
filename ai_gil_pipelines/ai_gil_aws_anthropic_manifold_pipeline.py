@@ -7,7 +7,7 @@ from pydantic import BaseModel
 import json
 
 from utils.pipelines.main import pop_system_message
-from ai_gil_utils.prompts.video_script import TITLE_AND_HOOK_SYSTEM_PROMPT
+from ai_gil_utils.private.prompts.video_script import TITLE_AND_HOOK_SYSTEM_PROMPT
 
 AWS_REGION = "us-east-1"  # GIL: sonnet 3.5 is only located here
 
