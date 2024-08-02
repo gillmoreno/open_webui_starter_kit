@@ -1,0 +1,16 @@
+docker-compose.yaml
+.env_openweb
+.env_pipelines
+
+# Private files
+ai_gil_pipelines/private/
+
+# Volumes (except volume_ai_gil_utils)
+volume_data/
+volume_images/
+volume_pipelines/
+volume_ai_gil_utils/private
+
+# Nasty files
+__pycache__/
+.DS_Store

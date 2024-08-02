@@ -1,0 +1,30 @@
+services:
+  pipelines:
+    image: ghcr.io/open-webui/pipelines:main
+    container_name: pipelines
+    ports:
+      - "9099:9099"
+    volumes:
+      - ./pipelines:/app/pipelines
+      - ./ai_gil_utils:/app/ai_gil_utils
+      - ./images:/app/image_generations
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    env_file:
+      - .env_pipelines
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - "3000:8080"
+    volumes:
+      - ./data:/app/backend/data
+      - ./images:/app/backend/data/cache/image/generations
+    env_file:
+      - .env_openweb
+
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
